@@ -1,0 +1,343 @@
+/* Default Mobile View*/
+
+/* 
+Create a keyframes called growLogo and use this as 
+the animation on my Logo, which is in .logo class.
+It starts at a width of 25px and opacity of 0, and grow to 475 px
+and opacity 1.
+*/
+@keyframes growLogo {
+    0% {
+        width: 25px;
+        opacity: 0;
+    }
+    100% {
+        width: 475px;
+        opacity: 1;
+    }
+  }
+
+  /* The animation takes 5 seconds.*/
+  #logo{
+    animation: growLogo 5s forwards;
+  }
+
+  /* 
+  "Poppins" font is used with "serif" as a default font.
+  Use the image "concrete_seamless.png" in "images/" folder
+  as the background color.
+  Use #f1f1f1 as the backup background color.
+  */
+  body{
+    font-family: 'Poppins', 'serif';
+    background-image: url('/images/concrete_seamless.png');
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    font-size: 16pt;
+  }
+
+  /* Use flex to style the header. Center the logo and nav links.*/
+  header{
+    background: #fff;
+    border-bottom: 3px solid #50C7C7;
+    margin-bottom:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* 
+  Use flex to style the nav_links class. All links should be listed
+  vertically, but not in a same line.
+  */
+  .nav_links{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 
+  Set the color of navigation link to always be blue, so that even 
+  after links have been visited, they won't change color.
+  */
+  .nav_item a{
+    padding: 10px;
+    color: #0000ff;
+  }
+
+  .nav_item a:hover, a:focus{
+    color: #50C7C7;
+    text-decoration: underline;
+    -webkit-text-decoration-style: dotted;
+            text-decoration-style: dotted;
+  }
+
+  /* 
+  Style only the header elements that are direct children of 
+  the .card class. A child selector `>` is used to achieve this.
+  Style the background color to be #288088;
+  Style the border to be solid, 2px, with color #45ADAD;
+  Style the top and bottom padding to be 20px;
+  Style the top-left and top-right corner radius to be 50px.
+  */
+  .card > header{
+    background-color: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+  /* 
+  Set the "width" property to be 450px so it won't
+  be affected when setting the higher-level class .pricing
+  to be a flex and arrange items in column direction.
+  */
+  .card {
+    width: 450px;
+    margin: 12px;
+    background: #fff;
+    /* Without making the card elements also have the same
+    top left/right corner border radius, it will leave the 
+    white background color after the header corners have
+    been rounded.*/
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 0 0 25px 0;
+  }
+
+  /* 
+  Making this class a flex.
+  Center all cards horizontally and vertically 
+  (achieved by using justify-content and align-items)
+  */
+  .pricing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 475px;
+  }
+
+  .card > ul{
+    list-style: none;
+    padding-left: 5px;
+  }
+  
+  .card > ul li {
+    width: 90%;
+    margin: 20px auto;
+    
+  }
+
+.card button{
+    width: 90%;
+    height: 40px;
+    border: 0;
+    margin-left: 5%;
+    border-radius: 7px;
+    background: #288080;
+    color: white;
+    font-size: 1em;
+  }
+  
+  .card h3{
+    font-size: 4em;
+    color: white;
+    text-align: center;
+  }
+    
+  h1{
+    font-size: 2em;
+    text-align: center;
+    line-height: 2;
+  }
+
+  h2{
+    font-size: 1.5em;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  p {
+    padding: 0 30px;
+  }
+
+  a.skip{
+    background: white;
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: -40px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+  }
+  
+  a.skip:focus{
+    top:20px;
+    color: black;
+    text-decoration-style: solid;
+  }
+
+  /* 
+  After the "skip to main" link is visited, it will still
+  be the original black color.
+  */
+  a.skip:visited{
+    color: black;
+  }
+  
+  *:focus{
+    border: 2px solid black;
+  }
+
+
+  footer{
+    background-color: black;
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+
+  /* 
+  Edit the gallery class to be flex.
+  Center all its elements.
+  Example shows that items will only be moved to the next row
+  when there is no enough space for flex items to fit in a 
+  single row.
+  */
+  .gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Let all images in .gallery class to have:
+  solid 10px border of color #50c7c7;
+  10px margin on all four sides;
+  a width of 300px.
+  */
+  .gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+  }
+
+
+/* When screen size is greater than 900px*/
+
+@media screen and (min-width: 900px){
+
+/* 
+Use flex to style the header. 
+Make it has "space between" the logo and the navigation links.
+"flex-direction" is now set as "row" to make these two elements
+be in the same row.
+*/
+  header{
+    background: #fff;
+    border-bottom: 3px solid #50C7C7;
+    margin-bottom:20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* In this case, after styling the logo to be at "flex-start",
+  the navigation links will automatically be at the flex-end. */
+  #logo {
+    align-self: flex-start;
+  }
+
+  /* For the navigation links, "flex-direction" is set to be row
+  to make the links appear in a same line.*/
+  .nav_links{
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* From the example, these three cards now appear in the same row.
+  Therefore, "flex-direction" is set as "row".*/
+  .pricing{
+    flex-direction: row;
+  }
+
+  /* The width of each card is set to be 275px.*/
+  .card {
+    width: 275px;
+  }
+
+  /* 
+  This will make the header (excluding those inside
+  main) become sticky to its original position.
+  z-index is set to be high enough to not let over contents
+  scolled above it.
+  */
+  header:not(main header){
+    position: sticky;
+    width: 100%;
+    z-index: 1000;
+    top:0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+    /* The logo would appear without having the aniamation effect*/
+    #logo{
+        animation: none;
+      }
+}
+
+@media print{
+    /* Change the font of body to Arial with a backup value
+    of Helvetica.
+    Remove the background image.*/
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+    /* Spread the navigation links*/
+    nav{
+        width: 100%;
+    }
+    
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+      /* Align the bottom of card elements */
+      .pricing{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        min-height: 475px;
+      }
+
+      /* The card element has a solid border of 2px and 
+      color #45ADDD.
+      Their initial widths are 325px.*/
+      .card{
+        border: solid 2px #45addd;
+        flex-basis: 325px;
+      }
+
+    /* None of the parts related to "gallery" should be visible
+    in print view. */
+      #gallery, .gallery{
+        display: none;
+      }
+
+    /* Add a thumbs up emoji after the second <li> element
+    in each <ul> element.*/
+    .card ul li:nth-child(2)::after{
+        content: '👍';
+        margin-left: 5px;
+    }
+
+}
